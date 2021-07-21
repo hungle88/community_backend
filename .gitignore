@@ -5,3 +5,4 @@ views
 procfile
 .env
 .gitattributes
+.DS_Store
