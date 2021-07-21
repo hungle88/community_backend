@@ -3,4 +3,5 @@ node_modules
 public
 views
 procfile
-env
+.env
+.gitattributes
