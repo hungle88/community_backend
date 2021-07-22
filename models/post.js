@@ -5,8 +5,7 @@ const postSchema = new Schema(
   {
     _id: Schema.Types.ObjectId,
     // created_date: String,
-    createdAt: 
-    { type: Date,  expires: 60*60*48  },
+    createdAt: Date,
 
     fullname: String,
     type: String,
@@ -15,7 +14,7 @@ const postSchema = new Schema(
     state: String,
     ownerId: String,
     comments: Array,
-    checkIn: Date
+    checkIn: Date,
   },
   { collection: "posts" }
 );
