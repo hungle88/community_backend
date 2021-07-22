@@ -27,7 +27,11 @@ mongoose.connect(url, {
 
 var app = express();
 
-app.use(cors());
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.set('case sensitive routing', true);
+app.set('strict routing', true);
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,6 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
+app.use(cors({ origin: true, credentials: true }));
 
 app.use(uaa.checkToken);
 
