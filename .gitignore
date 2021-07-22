@@ -2,7 +2,4 @@ bin
 node_modules
 public
 views
-procfile
-.env
-.gitattributes
 .DS_Store
