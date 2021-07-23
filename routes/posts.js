@@ -6,9 +6,12 @@ const { ObjectID } = require("bson");
 
 //display list of posts
 //show request by city and pagination
-router.get("/requests/:state/:city/:page", (req, res) => {
-  const postPerPage = 25;
-  const page = Math.max(0, req.params.page - 1);
+// router.get("/requests/:state/:city/:page", (req, res) => {
+  router.get("/requests/:state/:city/", (req, res) => {
+
+
+// const postPerPage = 25;
+  // const page = Math.max(0, req.params.page - 1);
 
   Post.find({
     type: "Help Requests",
@@ -16,8 +19,8 @@ router.get("/requests/:state/:city/:page", (req, res) => {
     city: req.params.city,
   })
     .sort({ createdAt: -1 })
-    .limit(postPerPage)
-    .skip(postPerPage * page)
+    // .limit(postPerPage)
+    // .skip(postPerPage * page)
     .exec(function (err, post) {
       if (err) return handleError(err);
 
@@ -31,9 +34,11 @@ router.get("/requests/:state/:city/:page", (req, res) => {
 });
 
 //show provider by city and pagination
-router.get("/providers/:state/:city/:page", (req, res) => {
-  const postPerPage = 25;
-  const page = Math.max(0, req.params.page - 1);
+// router.get("/providers/:state/:city/:page", (req, res) => {
+  router.get("/providers/:state/:city/", (req, res) => {
+
+// const postPerPage = 25;
+  // const page = Math.max(0, req.params.page - 1);
 
   Post.find({
     type: "Service Providers",
@@ -41,8 +46,8 @@ router.get("/providers/:state/:city/:page", (req, res) => {
     city: req.params.city,
   })
     .sort({ createdAt: -1 })
-    .limit(postPerPage)
-    .skip(postPerPage * page)
+    // .limit(postPerPage)
+    // .skip(postPerPage * page)
     .exec(function (err, post) {
       if (err) return handleError(err);
 
