@@ -7,7 +7,7 @@ const { ObjectID } = require("bson");
 //display list of posts
 //show request by city and pagination
 // router.get("/requests/:state/:city/:page", (req, res) => {
-  router.get("/requests/:state/:city/", (req, res) => {
+  router.get("/requests/:state/:city", (req, res) => {
 
 
 // const postPerPage = 25;
@@ -35,7 +35,7 @@ const { ObjectID } = require("bson");
 
 //show provider by city and pagination
 // router.get("/providers/:state/:city/:page", (req, res) => {
-  router.get("/providers/:state/:city/", (req, res) => {
+  router.get("/providers/:state/:city", (req, res) => {
 
 // const postPerPage = 25;
   // const page = Math.max(0, req.params.page - 1);
