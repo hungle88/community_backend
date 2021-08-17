@@ -7,14 +7,13 @@ const { ObjectID } = require("bson");
 //display list of posts
 //show request by city and pagination
 // router.get("/requests/:state/:city/:page", (req, res) => {
-  router.get("/requests/:state/:city", (req, res) => {
-
-
-// const postPerPage = 25;
+router.get("/requests/:state/:city", (req, res) => {
+  // const postPerPage = 25;
   // const page = Math.max(0, req.params.page - 1);
 
   Post.find({
     type: "Help Requests",
+    createdAt: { $gt: new Date(new Date().getTime() - 1000 * 3600 * 48) },
     state: req.params.state,
     city: req.params.city,
   })
@@ -35,13 +34,14 @@ const { ObjectID } = require("bson");
 
 //show provider by city and pagination
 // router.get("/providers/:state/:city/:page", (req, res) => {
-  router.get("/providers/:state/:city", (req, res) => {
-
-// const postPerPage = 25;
+router.get("/providers/:state/:city", (req, res) => {
+  // const postPerPage = 25;
   // const page = Math.max(0, req.params.page - 1);
 
   Post.find({
     type: "Service Providers",
+    createdAt: { $gt: new Date(new Date().getTime() - 1000 * 3600 * 48) },
+
     state: req.params.state,
     city: req.params.city,
   })
